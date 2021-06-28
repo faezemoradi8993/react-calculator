@@ -1,38 +1,194 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background-image: linear-gradient(#111111, #050A30);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+body:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(#8b4efc, #f18ebe);
+  clip-path: circle(20% at 10% 10%);
+}
+
+body:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(#f4f8f7, #0c32f0);
+  clip-path: circle(25% at 88% 77%);
+}
+
+.container {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  z-index: 10;
+}
+
+.container .calculator {
+  position: relative;
+  display: grid;
+}
+
+.container .calculator .input {
+  border: none;
+  height: 120px;
+  width: 300px;
+  background: transparent;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: right;
   color: white;
+  font-size: 30px;
+  grid-column: span 4;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  letter-spacing: 3px;
 }
 
-.App-link {
-  color: #61dafb;
+.container .calculator .num {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  user-select: none;
+  height: 75px;
+  width: 75px;
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container .calculator .num.clear {
+  grid-column: span 2;
+  width: 150px;
+  background-color: rgba(255, 255, 255, 0.02);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
 }
+
+.container .calculator .num.clear:active {
+  background-color: rgba(248, 59, 59, 0.2);
+}
+
+.container .calculator .num.plus {
+  grid-row: span 2;
+  background-color: rgba(255, 255, 255, 0.02);
+  height: 150px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.container .calculator .num.plus:active {
+  background-color: rgba(0, 255, 21, 0.2);
+}
+
+.container .calculator .num.equal {
+  background-color: rgba(255, 255, 255, 0.02);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.container .calculator .num.equal:active {
+  background-color: rgba(0, 140, 255, 0.2);
+}
+
+.container .calculator .num.mines {
+  background-color: rgba(255, 255, 255, 0.02);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.container .calculator .num.mines:active {
+  background-color: rgba(251, 255, 0, 0.2);
+}
+
+.container .calculator .num.divide {
+  background-color: rgba(255, 255, 255, 0.02);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.container .calculator .num.divide:active {
+  background-color: rgba(247, 173, 125, 0.2);
+}
+
+.container .calculator .num.zarb {
+  background-color: rgba(255, 255, 255, 0.02);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.container .calculator .num.zarb:active {
+  background-color: rgba(170, 0, 255, 0.2);
+}
+
+.container .calculator .num:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: 0s;
+  -webkit-transition: 0s;
+  -moz-transition: 0s;
+  -ms-transition: 0s;
+  -o-transition: 0s;
+}
+
+.container .calculator .num:active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+/*# sourceMappingURL=main.css.map */
